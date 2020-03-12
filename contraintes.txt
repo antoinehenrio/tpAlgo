@@ -1,0 +1,12 @@
+cell_type -> donne le type de la valeur de la cellule
+
+Colonne 1 : obligatoire, alphanum, unique, colonne A
+Colonne 2 : obligatoire, alphanum, unique, colonne C+D+"ML"
+Colonne 3 : obligatoire, numérique, colonne D
+Colonne 4 : facultatif, alphanum, colonne E
+Colonne 5 : obligatoire, numérique, unique, vérif ean 13, colonne H
+Colonne 6 : obligatoire, numérique, colonne F
+Colonne 7 : obligatoire, alphanum, colonne G
+Colonne 8 : obligatoire, colonne C
+Colonne 9 : obligatoire, titre précédent le produit
+Colonne 10 : obligatoire, marque du produit (ex : hugo boss)

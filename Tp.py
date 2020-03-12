@@ -4,6 +4,30 @@ from openpyxl import load_workbook
 from openpyxl import styles
 import csv
 
+def estUnique(valeur, numColonne, reader, index):
+    flag = False
+    i = 0
+    j = 0
+    counter = 0
+    chaineTemp = ""
+    compteurLignes = 1
+    for row in reader:
+        ligne = row[0].split(";")
+        if len(ligne) < 8:
+            for j in range(1,9 - len(ligne)):
+                ligne.append(" ")
+        if len(ligne) > 8:
+            del(ligne[len(ligne) - 1])
+        if ligne[numColonne - 1] == valeur and compteurLignes != index:
+            print("Ligne : {} Valeur : {} Num Colonne : {}".format(ligne[numColonne -1],valeur,numColonne))
+            flag = True
+        compteurLignes = compteurLignes + 1
+        print(ligne)
+    if flag == True:
+        return True
+    else:
+        return False
+
 #Initialisation des répertoires et des fichiers utiles au projet
 repBonnesLignes = "D:\\Desktop\\Cours\\CESI\\Algorithmie\\bonnesLignes"
 repMauvaisesLignes = "D:\Desktop\Cours\CESI\Algorithmie\mauvaisesLignes"
@@ -26,15 +50,9 @@ try:
 except IOError:
  print("Erreur dans l'ouverture du fichier csv")
 
-for row in c:
-    print(row)
-
-# ouverture du fichier Excel
-# wb = xlrd.open_workbook(fichierXls)
-# compteurLignes = 1
-# compteurColonnes = 1
-# #Récupération de la première feuille du classeur
-# feuilles = wb.sheet_names()
-# feuille = wb.sheet_by_name(feuilles[0])
-
-#Parcours des lignes de la feuille
+if estUnique("82464565",1,c,21) == True:
+    print("Cela existe")
+else:
+    print("Cela n'existe pas")
+# for row in c:
+#     print(row)
