@@ -1,17 +1,18 @@
 import xlrd
+from openpyxl import Workbook
+from openpyxl import load_workbook
+from openpyxl import styles
+import csv
 
 #Initialisation des répertoires et des fichiers utiles au projet
 repBonnesLignes = "D:\\Desktop\\Cours\\CESI\\Algorithmie\\bonnesLignes"
 repMauvaisesLignes = "D:\Desktop\Cours\CESI\Algorithmie\mauvaisesLignes"
 fichierBonnesLignes = "D:\\Desktop\\Cours\\CESI\\Algorithmie\\bonnesLignes\\bonnesLignes.csv"
 fichierMauvaisesLignes = "D:\\Desktop\\Cours\\CESI\\Algorithmie\\mauvaisesLignes\\mauvaisesLignes.csv"
-fichierXls = "D:\\Desktop\\Cours\\CESI\\Algorithmie\\coty.xls"
+fichierXls = "D:\\Desktop\\Cours\\CESI\\Algorithmie\\coty.csv"
 
 #Test de l'existence du fichier et de sa validité
-try:
- with open(fichierXls): pass
-except IOError:
- print("Erreur! Le fichier n'a pas pu être ouvert")
+c = csv.reader(open(fichierXls, "r"))
 
 #Création du fichier contenant les lignes valides
 try:
@@ -25,13 +26,15 @@ try:
 except IOError:
  print("Erreur dans l'ouverture du fichier csv")
 
-# ouverture du fichier Excel
-wb = xlrd.open_workbook(fichierXls)
+for row in c:
+    print(row)
 
-#Récupération de la première feuille du classeur
-feuilles = wb.sheet_names()
-feuille = wb.sheet_by_name(feuilles[0])
+# ouverture du fichier Excel
+# wb = xlrd.open_workbook(fichierXls)
+# compteurLignes = 1
+# compteurColonnes = 1
+# #Récupération de la première feuille du classeur
+# feuilles = wb.sheet_names()
+# feuille = wb.sheet_by_name(feuilles[0])
 
 #Parcours des lignes de la feuille
-for rownum in range(feuille.nrows):
-    print(feuille.row_values(rownum))
