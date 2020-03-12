@@ -1,9 +1,9 @@
 import xlrd
 
 #Initialisation des répertoires et des fichiers utiles au projet
-repBonnesLignes = "C:\\Users\\Antoine\\Documents\\CESI\\Cours\\Algo avancés\\Tp\\tpAlgo\\tpdefinitif\\tpAlgo\\\\bonnesLignes"
-repMauvaisesLignes = "C:\\Users\\Antoine\\Documents\\CESI\\Cours\\Algo avancés\\Tp\\tpAlgo\\tpdefinitif\\tpAlgomauvaisesLignes"
-fichierXls = "C:\\Users\\Antoine\\Documents\\CESI\\Cours\\Algo avancés\\Tp\\tpAlgo\\tpdefinitif\\tpAlgocoty.xls"
+repBonnesLignes = "C:\\Users\\Antoine\\Documents\\CESI\\Cours\\Algo\\Tp\\tpAlgo\\tpdefinitif\\tpAlgo\\\\bonnesLignes"
+repMauvaisesLignes = "C:\\Users\\Antoine\\Documents\\CESI\\Cours\\Algo\Tp\\tpAlgo\\tpdefinitif\\tpAlgomauvaisesLignes"
+fichierXls = "C:\\Users\\Antoine\\Documents\\CESI\\Cours\\Algo\\Tp\\tpAlgo\\tpdefinitif\\tpAlgo\\coty.xls"
 
 #Test de l'existence du fichier et de sa validité
 try:
