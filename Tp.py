@@ -33,7 +33,7 @@ for row in lines:
         ligneInserer.append(newRow[0])
 
     # Colonne 2
-    ligneInserer.append(newRow[2] + ' ' + newRow[3] + 'ML')
+    ligneInserer.append(newRow[2] + ' ' + newRow[3] + ' ML')
 
     # Colonne 3
     ligneInserer.append(newRow[3])
@@ -57,6 +57,25 @@ for row in lines:
 
     #Colonne 6
     ligneInserer.append(newRow[5])
+
+    #Colonne 7
+    ligneInserer.append(newRow[6])
+
+    #Colonne 8
+    if "EDP" in newRow[2]:
+        ligneInserer.append('Eau de Parfum')
+    elif "EDT" in newRow[2]:
+        ligneInserer.append('Eau de Toilette')
+    elif "DEO" in newRow[2]:
+        ligneInserer.append('Déodorant')
+    elif "BODY LOTION" in newRow[2]:
+        ligneInserer.append('Produit pour le corps')
+    elif "SHOWER GEL" in newRow[2]:
+        ligneInserer.append('Gel douche')
+    elif "AFTER SHAVE" in newRow[2]:
+        ligneInserer.append('lotion après-rasage')
+    else:
+        ligneInserer.append('')
 
     print(ligneInserer)
     ligneInserer = []
