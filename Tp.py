@@ -7,6 +7,14 @@ repBonnesLignes = "C:\\Users\\Antoine\\Documents\\CESI\\Cours\\Algo\\Tp\\tpAlgo\
 repMauvaisesLignes = "C:\\Users\\Antoine\\Documents\\CESI\\Cours\\Algo\Tp\\tpAlgo\\tpdefinitif\\tpAlgomauvaisesLignes"
 fichierXls = "C:\\Users\\Antoine\\Documents\\CESI\\Cours\\Algo\\Tp\\tpAlgo\\tpdefinitif\\tpAlgo\\coty2.csv"
 newRow = []
+ligneInserer = []
+cpt = 0
+cleC = 0
+
+my_list = []
+# my_list.append('geeks')
+# print(my_list)
+
 #Test de l'existence du fichier et de sa validité
 try:
  with open(fichierXls) as csvfile:
@@ -17,34 +25,38 @@ except IOError:
 
 for row in lines:
     newRow = row.split(';')
+    # Colonne 1
     # Vérification de la colonne A, si vide on prend la valeur de la colonne B
     if newRow[0] == '' and newRow[1] != '':
-        newRow[0] = newRow[1]
-        # newRow[0] = str(newRow[1])
-        print(newRow)
+        ligneInserer.append(newRow[1])
     else:
-        print(newRow)
+        ligneInserer.append(newRow[0])
 
-    # print(newRow[0])
+    # Colonne 2
+    ligneInserer.append(newRow[2] + ' ' + newRow[3] + 'ML')
 
-# for line in newRow.count()
-#     print(newRow[0])
-# ouverture du fichier Excel
-# wb = xlrd.open_workbook(fichierXls)
+    # Colonne 3
+    ligneInserer.append(newRow[3])
 
-#Récupération de la première feuille du classeur
-# feuilles = wb.sheet_names()
-# feuille = wb.sheet_by_name(feuilles[0])
+    # Colonne 4
+    ligneInserer.append(newRow[4])
 
-#Création du csv bonnes lignes
-# if os.path.isfile('bonnesLignes.csv'):
-#     print ("File exist")
-# else:
-#     f = open('bonnesLignes.csv', 'w')
-#     f.close()
+    #Colonne 5
+    # Verif EAN-13
+    if len(newRow[7].strip()) != 13:
+        for item in newRow[7].strip():
+            cleC = cleC + int(item)
+        cleC = cleC%10
+        newRow[7] = newRow[7].strip() + str(10 - cleC)
+        if(len(newRow[7]) == 13):
+            ligneInserer.append(newRow[7])
+        else:
+            ligneInserer.append('')
+    else:
+        ligneInserer.append(newRow[7].strip())
 
-#Parcours des lignes de la feuille
-# for rownum in range(feuille.nrows):
-#     newRow = rownum.split(';')
+    #Colonne 6
+    ligneInserer.append(newRow[5])
 
-#test
+    print(ligneInserer)
+    ligneInserer = []
